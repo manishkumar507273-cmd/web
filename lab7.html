@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery script</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+    body{
+        font-family: 'Courier New', Courier, monospace;
+        margin: 20px;
+    }
+
+    p,ul,li{
+        color:#333;
+    }
+    p,ul,div{
+        margin: 10px 0;
+        padding: 10px;
+    }
+    .Box{
+        width: 100px;
+        height: 100px;
+        background-color: #f4f4f4;
+    }
+    </style>
+</head>
+<body>
+    <h2>Append content</h2>
+    <p id="para" >This is a existing paragraph</p>
+    <ul id="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+    </ul>
+    <button id="appendBtn">Append content</button>
+
+    <h2>Animate Element</h2>
+    <div class="Box" id="animateBox"></div>
+    <button id="animateBtn">Animate Box</button>
+
+    <script>
+    $(document).ready(function(){
+        let itemcount=$('#list li').length;
+        $('#appendBtn').click(()=>{
+            itemcount++;
+            $('#para').append(` Appended text ${itemcount}.`);
+            $('#list').append(`<li>Item ${itemcount}</li>`);
+        });
+    });
+
+    $('#animateBtn').click(()=>{
+        $('#animateBox').css({width:'100px',height:'100px','background-color':'#f4f4f4'})
+        .animate({width:'150px',height:'150px'},500,function(){
+        $(this).css('background-color','lightblue');
+        })
+        })
+        
+    
+    </script>
+</body>
+</html>

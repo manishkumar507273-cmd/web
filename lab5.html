@@ -1,0 +1,138 @@
+
+<<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Registration form</title>
+        <style>
+        body{
+            background-color: #f4f4f4;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+        }
+
+        h1{
+            text-align: center;
+            color: black;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        table{
+            width: 60%;
+            margin: 0 auto;
+            background-color: #fff;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        td{
+            padding: 10px;
+            font-size: 15px;
+            color: black;
+        }
+
+        th{
+            text-align: left;
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            font-size: 20px;
+        }
+
+        input[type="text"],input[type="email"],input[type="password"],select,textarea{
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+
+        input[type="submit"],input[type="reset"]{
+            background-color: rgb(85, 145, 197);
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        input[type="submit"]:hover,input[type="reset"]:hover{
+            background-color: aqua;
+        }
+
+        textarea{
+            resize: vertical;
+            height: 100px;
+        }
+
+        .radio,.checkbox{
+            width: auto;
+        }
+        </style>
+    </head>
+    <body>
+    <h1>Registration form</h1>
+    <form action="#" method="post">
+        <table>
+            <tr>
+                <th colspan="2">Personal information</th>
+            </tr>
+
+            <tr>
+                <td>First name:</td>
+                <td><input type="text" name="firstname" placeholder="Enter your  first name"</td>
+            </tr>
+
+            <tr>
+                <td>Last name:</td>
+                <td><input type="text" name="lastname" placeholder="Enter your  last name"</td>
+            </tr>
+
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" name="email" placeholder="Enter your  email"</td>
+            </tr>
+
+            <tr>
+                <td>Passward:</td>
+                <td><input type="password" name="passward" placeholder="Enter your passward"</td>
+            </tr>
+
+            <tr>
+                <td>Gender:</td>
+                <td><input type="radio" name="gender" value="male" class="radio">Male
+                <input type="radio" name="gender" value="female" class="radio">Female
+                </td>
+            </tr>
+
+            <td>Country:</td>
+            <td><select name="country">
+                <option value="in">India</option>
+                <option value="uk">England</option>
+                <option value="usa">America</option>
+            </select></td>
+
+            <tr>
+                <td>Hobbies:</td>
+                <td><input type="checkbox" name="hobbies" value="reading" class="checkbox">Reading
+                <input type="checkbox" name="hobbies" value="writing" class="checkbox">Writing
+                <input type="checkbox" name="hobbies" value="sports" class="checkbox">Sports
+                </td>
+            </tr>
+
+            <tr>
+                <td>Address:</td>
+                <td><textarea name="address" placeholder="Enter the address"></textarea></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                <input type="submit" value="Register">
+                <input type="reset" value="Reset">
+                </td>
+            </tr>
+        </table>
+    </form>
+    </body>
+</html>

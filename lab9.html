@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body{
+            font-family: 'Courier New', Courier, monospace;
+            margin: 20px;
+        }
+
+        button{
+            padding: 8px 12px;
+            margin: 5px;
+            border-radius: 4px;
+        }
+
+        .content,.jsoncontent{
+            padding: 10px;
+            border: 1px solid black;
+            margin-top:10px ;
+        }
+    </style>
+</head>
+<body>
+    <h2>Ajax without jquery</h2>
+    <button onclick="loadcontent()">load text content(no jquery)</button>
+    <div id="content" class="content">content from the file will load here</div>
+    <h2>Ajax with jquery</h2>
+    <button id="loadBtn">load text content(jquery)</button>
+    <div id="jquerycontent" class="content">content from the file will load here </div>
+    <h2>getJson() Method</h2>
+    <button id="loadjsonBtn">load json data(jquery)</button>
+    <div id="jsoncontent" class="jsoncontent">json data will load here</div>
+    <h2>parseJson() method</h2>
+    <button id="parsejsonBtn">load parse json data</button>
+    <div id="parsecontent" class="jsoncontent">parse json data  will appear here</div>
+
+    <script>
+
+        function loadcontent(){
+            const xhr=new XMLHttpRequest();
+            xhr.open("GET","sample.txt",true);
+            xhr.onload=function(){
+                if(xhr.status===200){
+                    document.getElementById("content").innerText=xhr.responseText;
+                }
+            };
+            xhr.send();
+
+        }
+
+        $('#loadBtn').click(function(){
+            $.ajax({
+                url:'sample.txt',
+                method:'GET',
+                success:function(data){
+                    $('#jquerycontent').text(data);
+                }
+            })
+        })
+
+         $('#loadjsonBtn').click(function(){
+            $.getJSON('data.json',function(data){
+                $('#jsoncontent').html(
+                    `<p>Name:${data.name}</P>
+                    <p>Age:${data.age}</P>
+                        <p>Country:${data.country}</P>`
+                
+                );
+            });
+        });
+
+        $('#parsejsonBtn').click(function(){
+            const jsonString='{"name":"Alice","age":21,"country":"USA"}';
+            const jsonObject=$.parseJSON(jsonString);
+                $('#parsecontent').html(
+                    `<p>Name:${jsonObject.name}</P>
+                    <p>Age:${jsonObject.age}</P>
+                        <p>Country:${jsonObject.country}</P>`
+                
+                );
+            });
+        
+
+       
+
+    </script>
+</body>
+</html>
